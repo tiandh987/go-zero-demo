@@ -1,0 +1,16 @@
+syntax = "v1" // 表示这是 zero-api 的 v1 语法
+
+// 需求：
+//  1. 通过  /static/<filename> 路径下载名为 <filename> 的文件
+//  2. 直接返回文件内容即可
+
+// 定义了 Download 的请求格式
+type DownloadRequest {
+    File string `path:"file"`
+}
+
+// 定义了 Download 的请求路由
+service file-api {
+    @handler DownloadHandler
+    get /static/:file(DownloadRequest)
+}

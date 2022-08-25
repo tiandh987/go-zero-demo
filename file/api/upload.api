@@ -1,0 +1,12 @@
+syntax = "v1"
+
+// 定义了 Upload 的返回格式
+type UploadResponse {
+    Code int `json:"code"`
+}
+
+// 定义了 Upload 的请求路由
+service file-api {
+    @handler UploadHandler
+    post /upload returns (UploadResponse)
+}
